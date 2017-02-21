@@ -85,6 +85,23 @@ release: clean ## package and upload a release
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
 
+
+conda: clean ## package and upload a conda release
+	conda build conda
+	anaconda upload $(shell conda build conda --output)
+
+id:=$(shell docker images | grep -v REPOSITORY | head -1 | awk '{print $$3}')
+DOCKERUSER:={{ cookiecutter.docker_username }}
+DOCKERTAG:={{ cookikecutter.project_slug }}
+
+docker: clean
+	docker build -t ${DOCKERTAG} .
+
+dockerupload: clean
+	docker tag ${id} ${DOCKERUSER}/${DOCKERTAG}:latest
+	docker login -u ${DOCKERUSER}
+	docker push ${DOCKERUSER}/${DOCKERTAG}
+
 dist: clean ## builds source and wheel package
 	python setup.py sdist
 	python setup.py bdist_wheel

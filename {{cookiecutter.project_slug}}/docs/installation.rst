@@ -8,37 +8,23 @@ Installation
 Stable release
 --------------
 
-To install {{ cookiecutter.project_name }}, run this command in your terminal:
+To install {{ cookiecutter.project_slug }}, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install {{ cookiecutter.project_slug }}
+    $ conda install {{ cookiecutter.project_slug_dash }}
 
-This is the preferred method to install {{ cookiecutter.project_name }}, as it will always install the most recent stable release. 
-
-If you don't have `pip`_ installed, this `Python installation guide`_ can guide
-you through the process.
-
-.. _pip: https://pip.pypa.io
-.. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
-
+This is the preferred method to install {{ cookiecutter.project_slug }}, as it will
+always install the most recent stable release.
 
 From sources
 ------------
 
-The sources for {{ cookiecutter.project_name }} can be downloaded from the `Github repo`_.
-
-You can either clone the public repository:
+The sources for {{ cookiecutter.project_slug }} can be downloaded from the `Bitbucket repo`_.
 
 .. code-block:: console
 
-    $ git clone git://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-
-Or download the `tarball`_:
-
-.. code-block:: console
-
-    $ curl  -OL https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/tarball/master
+    $ git clone git@bitbucket.org:{{ cookiecutter.bitbucket_organization }}/{{ cookiecutter.project_slug }}.git
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +33,21 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
-.. _tarball: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/tarball/master
+.. _Bitbucket repo: https://bitbucket.org/scilifelab-lts/{{ cookiecutter.project_slug_dash }}
+
+Tests
+======
+
+If :mod:`{{ cookiecutter.project_slug }}` has been installed as a module, run
+
+.. code-block:: console
+
+   $ pytest -v -s --pyargs {{ cookiecutter.project_slug }}
+
+In order to load the pytest options provided by the module, the full
+path to the test suite needs to be given:
+
+.. code-block:: console
+
+   $ pytest -v -s -rs /path/to/{{ cookiecutter.project_slug }}/tests
+   

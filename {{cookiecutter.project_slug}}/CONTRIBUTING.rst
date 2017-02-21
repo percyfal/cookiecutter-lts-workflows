@@ -12,61 +12,27 @@ You can contribute in many ways:
 Types of Contributions
 ----------------------
 
-Report Bugs
-~~~~~~~~~~~
+Report Issues
+~~~~~~~~~~~~~~
 
-Report bugs at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
-
-If you are reporting a bug, please include:
-
-* Your operating system name and version.
-* Any details about your local setup that might be helpful in troubleshooting.
-* Detailed steps to reproduce the bug.
-
-Fix Bugs
-~~~~~~~~
-
-Look through the GitHub issues for bugs. Anything tagged with "bug"
-and "help wanted" is open to whoever wants to implement it.
-
-Implement Features
-~~~~~~~~~~~~~~~~~~
-
-Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
-
-Write Documentation
-~~~~~~~~~~~~~~~~~~~
-
-{{ cookiecutter.project_name }} could always use more documentation, whether as part of the
-official {{ cookiecutter.project_name }} docs, in docstrings, or even on the web in blog posts,
-articles, and such.
-
-Submit Feedback
-~~~~~~~~~~~~~~~
-
-The best way to send feedback is to file an issue at https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/issues.
-
-If you are proposing a feature:
-
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
-  are welcome :)
+Report issues at https://bitbucket.org/{{ cookiecutter.bitbucket_organization }}/{{ cookiecutter.bitbucket_username }}/{{ cookiecutter.project_slug }}/issues.
 
 Get Started!
 ------------
 
 Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for local development.
 
-1. Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
+1. Fork the `{{ cookiecutter.project_slug }}` repo on Bitbucket.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
+    $ git clone git@bitbucket.org:your_name_here/{{ cookiecutter.project_slug }}.git
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+3. Install your local copy into a conda environment. Assuming you have
+   conda installed, this is how you set up your fork for local
+   development::
 
-    $ mkvirtualenv {{ cookiecutter.project_slug }}
+    $ conda env create -n {{ cookiecutter.project_slug }}
+    $ source activate {{ cookiecutter.project_slug }}/
     $ cd {{ cookiecutter.project_slug }}/
     $ python setup.py develop
 
@@ -76,42 +42,36 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for 
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
+5. When you're done making changes, check that your changes pass
+   flake8 and the tests::
 
     $ flake8 {{ cookiecutter.project_slug }} tests
     $ python setup.py test or py.test
-    $ tox
 
-   To get flake8 and tox, just pip install them into your virtualenv.
+   To get flake8, just pip or conda install them into your conda
+   environment.
 
-6. Commit your changes and push your branch to GitHub::
+6. Commit your changes and push your branch to Bitbucket::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-7. Submit a pull request through the GitHub website.
+7. Submit a pull request through the Bitbucket website.
 
 Pull Request Guidelines
 -----------------------
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1. The pull request should include tests.
+1. If applicable, the pull request should include tests.
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
-3. The pull request should work for Python 2.6, 2.7, 3.3, 3.4 and 3.5, and for PyPy. Check
-   https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/pull_requests
-   and make sure that the tests pass for all supported Python versions.
 
 Tips
 ----
 
 To run a subset of tests::
 
-{% if cookiecutter.use_pytest == 'y' -%}
-    $ py.test tests.test_{{ cookiecutter.project_slug }}
-{% else %}
-    $ python -m unittest tests.test_{{ cookiecutter.project_slug }}
-{%- endif %}
+    $ pytest tests.test_{{ cookiecutter.project_slug }}

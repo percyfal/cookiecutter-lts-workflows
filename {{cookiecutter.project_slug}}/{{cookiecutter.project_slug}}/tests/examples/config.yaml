@@ -1,0 +1,56 @@
+##################################################
+# {{ cookiecutter.project_name }}
+#
+# Configuration file example
+##################################################
+
+##############################
+# Samples
+#
+# Sample names must be defined in the 'SM' column of the sampleinfo
+# file. Providing a subset of samples here will restrict analyses to
+# theses samples only.
+##############################
+samples:
+  - s1
+  - s2
+
+##############################
+# workflow section
+##############################
+# workflow:
+
+##############################
+# settings section
+##############################
+settings:
+  sampleinfo: sampleinfo.csv
+  # temporary_rules:
+  # - rule_name
+  runfmt: "{SM}/{SM}_{PU}"
+  samplefmt: "{SM}/{SM}"
+
+
+##############################
+# ngs.settings
+##############################
+# ngs.settings:
+
+
+##############################
+# Application sections
+#
+# Every application (e.g. STAR, rsem) lives in its own configuration
+# namespace. Typically, an application also has subcommands,
+# represented by different rules, that have configuration options that
+# live in a suitably named namespace/subsection of the main
+# application configuration.
+#
+# To give an example, 'star' is the main namespace for
+# STAR. One top level key is 'ref' that should be a list of reference
+# sequences. This option is inherited from 'ngs.settings:db:ref'
+# and rarely needs to be set explicitely. In contrast, the
+# 'star_index' subsection corresponds to STAR indexing and has
+# configurable options that only apply to this particular command.
+#
+##############################

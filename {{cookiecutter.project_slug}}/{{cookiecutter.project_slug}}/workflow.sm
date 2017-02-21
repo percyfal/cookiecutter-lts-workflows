@@ -1,0 +1,59 @@
+# -*- snakemake -*-
+import os
+from os.path import join, basename, dirname, splitext
+import re
+import sys
+import csv
+import shutil
+from snakemake.utils import update_config, set_temporary_output, set_protected_output, R
+from snakemake.logging import logger
+
+##############################
+# Default configuration settings
+##############################
+config_default = {
+}
+
+update_config(config_default, config)
+config = config_default
+
+##############################
+# Include statements
+##############################
+RULES_PATH = "rules"
+# include: join(RULES_PATH, 'application/application_rule1.rule')
+# include: join(RULES_PATH, 'application/application_rule2.rule')
+
+
+##############################
+# Final preparation
+##############################
+if workflow._workdir is None and '-d' not in sys.argv and '--directory' not in sys.argv:
+    raise Exception("no workdir set, or set after include of 'workflow'; set workdir before include statement or via commandline!")
+if config['settings']['sampleinfo'] is None:
+    raise Exception("no sampleinfo file provided; you *must* provide a sampleinfo file in section config['settings']['sampleinfo']!")
+
+##############################
+# workflow targets
+##############################
+try:
+    sampleinfo = config['_sampleinfo']
+except:
+    raise
+runid_prefixes = sorted(set([config['settings']['runfmt'].format(**x) for x in sampleinfo if config['samples'] is None or x['SM'] in config['samples']]))
+sample_prefixes = sorted(set([config['settings']['samplefmt'].format(**x) for x in sampleinfo if config['samples'] is None or x['SM'] in config['samples']]))
+
+# Define targets here
+
+rule all:
+    """Run entire workflow"""
+    input: 
+
+
+##############################
+# Postamble
+##############################
+
+# Set temporary and protected outputs
+set_temporary_output(*[workflow.get_rule(x) for x in config['settings']['temporary_rules']])
+set_protected_output(*[workflow.get_rule(x) for x in config['settings']['protected_rules']])

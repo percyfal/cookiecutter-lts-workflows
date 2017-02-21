@@ -1,0 +1,8 @@
+# -*- snakemake -*-
+from {{ cookiecutter.project_slug }} import WORKFLOW
+
+configfile: "config.yaml"
+configfile: "config.fmt.yaml"
+
+include: WORKFLOW
+

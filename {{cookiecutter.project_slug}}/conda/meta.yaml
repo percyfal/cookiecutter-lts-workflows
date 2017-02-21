@@ -1,0 +1,38 @@
+{% set name = "lts-workflows-sm-scrnaseq" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+source:
+  path: ../
+build:
+  number: 0
+  skip: True # [py27]
+  script: $PYTHON setup.py install --single-version-externally-managed --record record.txt
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest
+    - pytest-runner
+  run:
+    - pytest
+    - snakemake
+    - lts-workflows
+    - pyyaml
+
+test:
+  requires:
+    # tests
+    - pytest
+    - pytest-runner
+    - snakemake
+
+  imports:
+    - {{ cookiecutter.project_slug }}
+
+about:
+  home: https://bitbucket.org/{{ cookiecutter.bitbucket_organization }}/{{ cookiecutter.project_slug }}
+  license: GNU General Public License v3
+  summary: 'lts-workflows snakemake'
