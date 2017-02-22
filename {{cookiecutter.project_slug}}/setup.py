@@ -14,9 +14,6 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    {%- if cookiecutter.command_line_interface|lower == 'click' %}
-    'Click>=6.0',
-    {%- endif %}
     'pyyaml>=3.11',
     'lts-workflows',
     # TODO: put package requirements here
@@ -68,13 +65,6 @@ setup(
     package_dir={'{{ cookiecutter.project_slug }}':
                  '{{ cookiecutter.project_slug }}'},
     package_data={'{{ cookiecutter.project_slug }}': package_data},
-    {%- if 'no' not in cookiecutter.command_line_interface|lower %}
-    entry_points={
-        'console_scripts': [
-            '{{ cookiecutter.project_slug }}={{ cookiecutter.project_slug }}.cli:main'
-        ]
-    },
-    {%- endif %}
     include_package_data=True,
     install_requires=requirements,
 {%- if cookiecutter.open_source_license in license_classifiers %}
