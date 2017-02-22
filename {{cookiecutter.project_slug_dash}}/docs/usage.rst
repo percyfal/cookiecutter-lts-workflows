@@ -3,7 +3,7 @@ Usage
 
 The intended usage is to include the main workflow file in a
 Snakefile. See the examples in the test directory. For information on
-what the workflow does, see `workflow`_.
+what the workflow does, see :ref:`workflow`.
 
 Running
 --------

@@ -1,11 +1,13 @@
-Welcome to {{ cookiecutter.project_name }}'s documentation!
-======================================
+{{ cookiecutter.project_name }} documentation
+==========================================================
 
 .. image:: https://readthedocs.org/projects/{{ cookiecutter.project_slug }}/badge/?version=latest
         :target: https://{{ cookiecutter.project_slug }}.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 
+{{ cookiecutter.project_description }}
+	      
 Contents:
 
 .. toctree::
@@ -17,7 +19,9 @@ Contents:
    workflow
    readme
    contributing
-   {% if cookiecutter.create_author_file == 'y' -%}authors{% endif -%}
+   {% if cookiecutter.create_author_file == 'y' -%}
+   authors
+   {% endif -%}
    history
 
 Indices and tables

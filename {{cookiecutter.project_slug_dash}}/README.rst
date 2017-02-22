@@ -1,7 +1,7 @@
 {% set is_open_source = cookiecutter.open_source_license != 'Not open source' -%}
-===============================
+
 {{ cookiecutter.project_name }}
-===============================
+========================================================================
 
 {% if is_open_source %}
 .. image:: https://anaconda.org/{{ cookiecutter.bitbucket_username }}/lts-workflows/badges/version.svg
