@@ -13,5 +13,6 @@
     "use_docker_deployment": "y",
     "docker_username": "{{ cookiecutter.bitbucket_username }}",
     "create_author_file": "y",
+    "use_pytest" : "y",
     "open_source_license": ["GNU General Public License v3", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
 }
