@@ -6,7 +6,7 @@
         :alt: Documentation Status
 
 
-{{ cookiecutter.project_description }}
+{{ cookiecutter.project_short_description }}
 	      
 Contents:
 
