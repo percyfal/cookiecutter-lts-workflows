@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3
+FROM {{ cookiecutter.docker_username }}/lts-workflows
 LABEL Maintainer {{ cookiecutter.full_name }} <{{ cookiecutter.email }}>
 ADD . /tmp/repo
 RUN apt-get upgrade -y

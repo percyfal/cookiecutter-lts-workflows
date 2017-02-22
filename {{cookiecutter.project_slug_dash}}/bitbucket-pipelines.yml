@@ -1,0 +1,7 @@
+image: {{ cookiecutter.docker_username }}/{{ cookiecutter.project_slug }}
+pipelines:
+  default:
+    - step:
+        script:
+          - pip install -e .
+          - python setup.py test
