@@ -1,7 +1,7 @@
 Welcome to {{ cookiecutter.project_name }}'s documentation!
 ======================================
 
-.. image:: https://readthedocs.org/projects/{{ cookecutter.project_slug }}/badge/?version=latest
+.. image:: https://readthedocs.org/projects/{{ cookiecutter.project_slug }}/badge/?version=latest
         :target: https://{{ cookiecutter.project_slug }}.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 

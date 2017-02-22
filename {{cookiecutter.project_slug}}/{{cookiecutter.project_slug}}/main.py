@@ -34,7 +34,7 @@ Examples
 .. code-block:: bash
 
    $ docker run {{ cookiecutter.docker_username }}/{{ cookiecutter.project_slug }}
-   $ docker run -v /path/to/workdir:/workspace -w /workspace {{ cookiecuter.docker_username }}/{{ cookiecutter.project_slug }} all
+   $ docker run -v /path/to/workdir:/workspace -w /workspace {{ cookiecutter.docker_username }}/{{ cookiecutter.project_slug }} all
     """
     if int(sys.version[0]) != 3:
         logger.error("python version 3 required to run")

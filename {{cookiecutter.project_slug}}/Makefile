@@ -92,7 +92,7 @@ conda: clean ## package and upload a conda release
 
 id:=$(shell docker images | grep -v REPOSITORY | head -1 | awk '{print $$3}')
 DOCKERUSER:={{ cookiecutter.docker_username }}
-DOCKERTAG:={{ cookikecutter.project_slug }}
+DOCKERTAG:={{ cookiecutter.project_slug }}
 
 docker: clean
 	docker build -t ${DOCKERTAG} .
